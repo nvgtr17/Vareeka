@@ -1,0 +1,7 @@
+{
+  "name": "Vareeka - The Art of Adornment",
+  "description": "A high-end luxury jewelry landing page featuring immersive hover interactions, sophisticated aesthetics, and an AI-powered styling concierge.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
