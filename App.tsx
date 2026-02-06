@@ -10,9 +10,9 @@ const App: React.FC = () => {
     <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black select-none">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
-        <img 
-          alt="Elegant model wearing jewelry" 
-          className="w-full h-full object-cover filter grayscale contrast-125 brightness-50" 
+        <img
+          alt="Elegant model wearing jewelry"
+          className="w-full h-full object-cover filter grayscale contrast-125 brightness-50"
           src={MAIN_BG_IMAGE}
         />
         {/* Subtle gradient overlay to pull focus center */}
@@ -27,16 +27,6 @@ const App: React.FC = () => {
         {MARKERS.map((m) => (
           <MarkerBox key={m.id} marker={m} />
         ))}
-      </div>
-
-      {/* Mobile-only static markers */}
-      <div className="absolute inset-0 z-10 pointer-events-none sm:hidden flex flex-col justify-between p-6">
-        <div className="w-24 h-24 border border-[#f3b6c2]/50 self-start mt-24 relative">
-          <div className="absolute -bottom-6 left-0 text-white font-serif italic text-sm">Corine</div>
-        </div>
-        <div className="w-32 h-20 border border-[#f3b6c2]/50 self-end mb-24 relative">
-          <div className="absolute -top-6 right-0 text-white font-serif italic text-sm">Thalia</div>
-        </div>
       </div>
 
       {/* Main CTA Card */}

@@ -13,6 +13,7 @@ export interface Marker {
   height?: string;
   bgPos: string;
   imageUrl: string;
+  labelPosition?: 'left' | 'right';
 }
 
 export interface ChatMessage {
