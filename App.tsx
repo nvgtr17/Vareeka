@@ -8,44 +8,80 @@ import { MAIN_BG_IMAGE, MARKERS } from './constants';
 
 const App: React.FC = () => {
   return (
-    <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black select-none">
-      {/* Background Layer */}
-      <div className="absolute inset-0 z-0">
-        <img
-          alt="Elegant model wearing jewelry"
-          className="w-full h-full object-cover filter grayscale contrast-125 brightness-50"
-          src={MAIN_BG_IMAGE}
-        />
-        {/* Subtle gradient overlay to pull focus center */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-[#0f0f1a]/30 to-black/60 z-10"></div>
-        <div className="absolute inset-0 bg-[#0f0f1a]/40 z-10"></div>
+    <main className="relative w-full min-h-screen flex flex-col md:flex-row overflow-hidden bg-black select-none">
+      {/* Navbar - Fixed at top */}
+      <div className="absolute top-0 w-full z-50 pointer-events-none">
+        <Navbar />
       </div>
 
-      <Navbar />
+      {/* Visual Side (Image & Markers) */}
+      <div className="absolute inset-0 md:relative flex-1 md:h-screen overflow-hidden border-r border-white/5 z-0 md:z-10">
+        {/* Logo Overlay - Center Top (Desktop Only) */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-4 pointer-events-none">
+          <img
+            src="/assets/logos/Logo Mark/Logomark secondary (pink).svg"
+            alt="Vareeka Logomark"
+            className="h-10 md:h-14 object-contain"
+          />
+          <img
+            src="/assets/logos/Type logo/Type logo secondary (pink).svg"
+            alt="Vareeka Type logo"
+            className="h-6 md:h-8 object-contain"
+          />
+        </div>
 
-      {/* Interactive Markers */}
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        {MARKERS.map((m) => (
-          <MarkerBox key={m.id} marker={m} />
-        ))}
+        {/* Background Layer */}
+        <div className="absolute inset-0">
+          <img
+            alt="Elegant model wearing jewelry"
+            className="w-full h-full object-cover filter grayscale contrast-125 brightness-50 object-top"
+            src={MAIN_BG_IMAGE}
+          />
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/60 via-[#0f0f1a]/30 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-[#0f0f1a]/40 z-10"></div>
+        </div>
+
+        {/* Interactive Markers */}
+        <div className="absolute inset-0 z-20 pointer-events-none">
+          {MARKERS.map((m) => (
+            <MarkerBox key={m.id} marker={m} />
+          ))}
+        </div>
+
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.6)] z-30"></div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-40 flex flex-col items-center justify-center w-full pointer-events-none">
-        <HeroCard />
-        <InnerCircleCard />
-      </div>
+      {/* Right Panel: The Purple Form */}
+      {/* On mobile: centered "card". On desktop: Entire right 500px panel is purple */}
+      <div className="relative w-full md:w-[500px] md:shrink-0 flex flex-col items-center justify-center z-20">
+        {/* The Purple Content Container */}
+        <div className="relative w-full h-full min-h-screen md:min-h-0 flex flex-col items-center justify-center p-6 md:p-0">
+          {/* 
+            Desktop: Full panel background
+            Mobile: Floating card look
+          */}
+          <div className="w-full h-full md:h-screen flex flex-col justify-center backdrop-blur-3xl bg-[#454065]/80 md:bg-[#454065]/90 border border-white/10 md:border-none shadow-2xl md:shadow-none rounded-sm md:rounded-none overflow-hidden pointer-events-auto">
+            <div className="flex-1 flex flex-col justify-center">
+              <HeroCard />
+              <div className="w-[60%] h-px bg-white/10 mx-auto opacity-30"></div>
+              <InnerCircleCard />
+            </div>
+          </div>
+        </div>
 
-      {/* Footer / Status Bar */}
-      <div className="absolute bottom-10 w-full z-30 px-8 flex justify-between items-end text-white/40 text-[10px] md:text-xs font-sans tracking-[0.1em]">
-        <div className="leading-relaxed">
-          <p>© 2024 Vareeka Fine Jewelry.</p>
-          <p>All rights reserved.</p>
+        {/* Footer info */}
+        <div className="absolute bottom-10 left-0 right-0 md:left-auto md:right-10 z-30 flex justify-center md:justify-end text-white/40 text-[9px] md:text-xs font-sans tracking-[0.1em] pointer-events-none px-8">
+          <div className="text-center md:text-right leading-relaxed">
+            <p>© 2024 Vareeka Fine Jewelry.</p>
+            <p>All rights reserved.</p>
+          </div>
         </div>
       </div>
 
-      {/* Subtle vignette */}
-      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.8)] z-30"></div>
+      {/* Global vignette - only for mobile where layout is stacked */}
+      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.4)] z-30 md:hidden"></div>
     </main>
   );
 };
