@@ -16,17 +16,12 @@ const App: React.FC = () => {
 
       {/* Visual Side (Image & Markers) */}
       <div className="absolute inset-0 md:relative flex-1 md:h-screen overflow-hidden border-r border-white/5 z-0 md:z-10">
-        {/* Logo Overlay - Center Top (Desktop Only) */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-4 pointer-events-none">
+        {/* Logo Overlay - Center (Desktop Only) */}
+        <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center pointer-events-none w-full max-w-[380px]">
           <img
-            src="/assets/logos/Logo Mark/Logomark secondary (pink).svg"
-            alt="Vareeka Logomark"
-            className="h-10 md:h-14 object-contain"
-          />
-          <img
-            src="/assets/logos/Type logo/Type logo secondary (pink).svg"
-            alt="Vareeka Type logo"
-            className="h-6 md:h-8 object-contain"
+            src="/assets/logos/Full Logo/Full logo Secondary (pink).svg"
+            alt="Vareeka Full Logo"
+            className="w-full h-auto object-contain"
           />
         </div>
 
@@ -34,7 +29,7 @@ const App: React.FC = () => {
         <div className="absolute inset-0">
           <img
             alt="Elegant model wearing jewelry"
-            className="w-full h-full object-cover filter grayscale contrast-125 brightness-50 object-top"
+            className="w-full h-full object-cover filter grayscale contrast-125 brightness-50 object-top blur-[4px]"
             src={MAIN_BG_IMAGE}
           />
           {/* Subtle gradient overlay */}
