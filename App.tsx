@@ -16,15 +16,6 @@ const App: React.FC = () => {
 
       {/* Visual Side (Image & Markers) */}
       <div className="absolute inset-0 md:relative flex-1 md:h-screen overflow-hidden border-r border-white/5 z-0 md:z-10">
-        {/* Logo Overlay - Center (Desktop Only) */}
-        <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center pointer-events-none w-full max-w-[380px]">
-          <img
-            src="/assets/logos/Full Logo/Full logo Secondary (pink).svg"
-            alt="Vareeka Full Logo"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-
         {/* Background Layer */}
         <div className="absolute inset-0">
           <img
@@ -44,6 +35,15 @@ const App: React.FC = () => {
           ))}
         </div>
 
+        {/* Global Logo Overlay - Centered relative to the visual side */}
+        <div className="absolute top-6 md:top-1/2 left-1/2 -translate-x-1/2 md:-translate-y-1/2 z-[60] flex items-center justify-center pointer-events-none w-full max-w-[130px] md:max-w-[380px]">
+          <img
+            src="/assets/logos/Full Logo/Full logo Secondary (pink).svg"
+            alt="Vareeka Full Logo"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+
         {/* Subtle vignette */}
         <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.6)] z-30"></div>
       </div>
@@ -52,27 +52,21 @@ const App: React.FC = () => {
       {/* On mobile: centered "card". On desktop: Entire right 500px panel is purple */}
       <div className="relative w-full md:w-[500px] md:shrink-0 flex flex-col items-center justify-center z-20">
         {/* The Purple Content Container */}
-        <div className="relative w-full h-full min-h-screen md:min-h-0 flex flex-col items-center justify-center p-6 md:p-0">
+        <div className="relative w-full h-full min-h-screen md:min-h-0 flex flex-col items-center justify-center pt-16 pb-2 px-6 md:p-0">
           {/* 
             Desktop: Full panel background
             Mobile: Floating card look
           */}
           <div className="w-full h-full md:h-screen flex flex-col justify-center backdrop-blur-3xl bg-[#454065]/80 md:bg-[#454065]/90 border border-white/10 md:border-none shadow-2xl md:shadow-none rounded-sm md:rounded-none overflow-hidden pointer-events-auto">
-            <div className="flex-1 flex flex-col justify-center">
+            <div className="flex-1 flex flex-col justify-start pt-6 md:pt-20">
               <HeroCard />
-              <div className="w-[60%] h-px bg-white/10 mx-auto opacity-30"></div>
+              <div className="w-[60%] h-px bg-white/10 mx-auto opacity-30 my-2 md:my-4"></div>
               <InnerCircleCard />
             </div>
           </div>
         </div>
 
-        {/* Footer info */}
-        <div className="absolute bottom-10 left-0 right-0 md:left-auto md:right-10 z-30 flex justify-center md:justify-end text-white/40 text-[9px] md:text-xs font-sans tracking-[0.1em] pointer-events-none px-8">
-          <div className="text-center md:text-right leading-relaxed">
-            <p>© 2024 Vareeka Fine Jewelry.</p>
-            <p>All rights reserved.</p>
-          </div>
-        </div>
+
       </div>
 
       {/* Global vignette - only for mobile where layout is stacked */}
