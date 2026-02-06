@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import MarkerBox from './components/MarkerBox';
 import HeroCard from './components/HeroCard';
+import InnerCircleCard from './components/InnerCircleCard';
 import { MAIN_BG_IMAGE, MARKERS } from './constants';
 
 const App: React.FC = () => {
@@ -10,9 +11,9 @@ const App: React.FC = () => {
     <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black select-none">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
-        <img 
-          alt="Elegant model wearing jewelry" 
-          className="w-full h-full object-cover filter grayscale contrast-125 brightness-50" 
+        <img
+          alt="Elegant model wearing jewelry"
+          className="w-full h-full object-cover filter grayscale contrast-125 brightness-50"
           src={MAIN_BG_IMAGE}
         />
         {/* Subtle gradient overlay to pull focus center */}
@@ -29,18 +30,11 @@ const App: React.FC = () => {
         ))}
       </div>
 
-      {/* Mobile-only static markers */}
-      <div className="absolute inset-0 z-10 pointer-events-none sm:hidden flex flex-col justify-between p-6">
-        <div className="w-24 h-24 border border-[#f3b6c2]/50 self-start mt-24 relative">
-          <div className="absolute -bottom-6 left-0 text-white font-serif italic text-sm">Corine</div>
-        </div>
-        <div className="w-32 h-20 border border-[#f3b6c2]/50 self-end mb-24 relative">
-          <div className="absolute -top-6 right-0 text-white font-serif italic text-sm">Thalia</div>
-        </div>
+      {/* Main Content Area */}
+      <div className="relative z-40 flex flex-col items-center justify-center w-full pointer-events-none">
+        <HeroCard />
+        <InnerCircleCard />
       </div>
-
-      {/* Main CTA Card */}
-      <HeroCard />
 
       {/* Footer / Status Bar */}
       <div className="absolute bottom-10 w-full z-30 px-8 flex justify-between items-end text-white/40 text-[10px] md:text-xs font-sans tracking-[0.1em]">

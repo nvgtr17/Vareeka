@@ -11,7 +11,8 @@ export const MARKERS: Marker[] = [
     left: '25%',
     width: 'w-32 h-40 md:w-48 md:h-64',
     bgPos: 'top-[-20vh] left-[-25vw]',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCV4l5s7s-3kFqP6-Ji_kVHp2iEgNmTiwjbTV2o5CJYL4jBd1s8njYINOjHLIUlon_Q3TkuoYs48636TnhVb3hlOYrZiBsNf3zZfDlKRu3mGKKmZYHuSYRkURSwzJdcif38Woyaf2ayFJMgT08_sw2dTPOon5v2oi-NayDL4RW_sMKY6GdCPJtz3KSl75AaSo0EacXoahE4Vsm8EASBSIEykHsHrFz4YNj4foaouDuYs8_630lyoPPFZqI3FqVqkOYtcFFyZzLHrMTo'
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCV4l5s7s-3kFqP6-Ji_kVHp2iEgNmTiwjbTV2o5CJYL4jBd1s8njYINOjHLIUlon_Q3TkuoYs48636TnhVb3hlOYrZiBsNf3zZfDlKRu3mGKKmZYHuSYRkURSwzJdcif38Woyaf2ayFJMgT08_sw2dTPOon5v2oi-NayDL4RW_sMKY6GdCPJtz3KSl75AaSo0EacXoahE4Vsm8EASBSIEykHsHrFz4YNj4foaouDuYs8_630lyoPPFZqI3FqVqkOYtcFFyZzLHrMTo',
+    textSide: 'left'
   },
   {
     id: 'thalia',
@@ -29,6 +30,7 @@ export const MARKERS: Marker[] = [
     left: '30%',
     width: 'w-40 h-24 md:w-56 md:h-32',
     bgPos: 'bottom-[-15vh] left-[-30vw]',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBfbL1YKoObB5GW_HFASGdxFIWc97w_H6llFzIlfdowiomQ00X6_PmyNyU2rQgTpuT1Pt_iTIe2uUHdfqm_qIdxAc-Zg_M-u6uYeNc-2yYoSTBNNVyoDWb1M3wTBmxc0lsYbNxWN4L3iuerCN1UDnY52uYhHRzFnGuSRB5f0fsCeEiM-p0qRr5CYCWnjTAid5c7sLttUPOdi91XZ4v9M5-uQ2k7jxGaj12QlQ6uxRL4d3N_qBTdXlK5fukrgg8hMj7eh7Ee-mTPAlr3'
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBfbL1YKoObB5GW_HFASGdxFIWc97w_H6llFzIlfdowiomQ00X6_PmyNyU2rQgTpuT1Pt_iTIe2uUHdfqm_qIdxAc-Zg_M-u6uYeNc-2yYoSTBNNVyoDWb1M3wTBmxc0lsYbNxWN4L3iuerCN1UDnY52uYhHRzFnGuSRB5f0fsCeEiM-p0qRr5CYCWnjTAid5c7sLttUPOdi91XZ4v9M5-uQ2k7jxGaj12QlQ6uxRL4d3N_qBTdXlK5fukrgg8hMj7eh7Ee-mTPAlr3',
+    textSide: 'left'
   }
 ];
