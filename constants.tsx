@@ -1,7 +1,16 @@
 
 import { Marker } from './types';
 
-export const MAIN_BG_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuDZrSoo0ZDOpsY4uHvcXeiPVBPnKYmC4DLERpCUNBNVA2RTDAqjsQ4sJIG6xGxotbVLfO8EsuAuEZLVUx4sFfvvUVgKao4rTQrvvBl80gWt7fTkxVxl4ZxZcfkoNopuAbJVYzUekA_eSHTruXqn3mBQ69EePFKpSmb7fhu_xOTgXm1HvbTCYSfc_-D-xds56Q4A2UiGyTcxozFJF4BHR1QVgOUueBg7qZ60zToWjzZrwyC_CinvUTHri2M-_HdfSlPxVRl6lfqprkzN";
+export const MAIN_BG_IMAGES = [
+  "/assets/images/1.jpg",
+  "/assets/images/2.jpg",
+  "/assets/images/3.jpg",
+  "/assets/images/4.jpg",
+  "/assets/images/5.jpg",
+  "/assets/images/6.jpg",
+];
+
+export const DEFAULT_BG_IMAGE = MAIN_BG_IMAGES[0];
 
 export const MARKERS: Marker[] = [
   {
