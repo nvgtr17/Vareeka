@@ -17,7 +17,7 @@ async function generate() {
 
     // Greedily find all URLs that look like images or Google storage links
     const urls = html.match(/https?:\/\/[a-zA-Z0-9.\-_/%?=&]+/g) || [];
-    const localPaths = html.match(/["'](\/(?:assets|public)[^"']+)["']/g) || [];
+    const localPaths = html.match(/["'](\.?\/(?:assets|public)[^"']+)["']/g) || [];
 
     const assetsToProcess = new Set([
         ...urls,
