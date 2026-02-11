@@ -1,7 +1,7 @@
 
 import React from 'react';
-import logoMark from '../public/assets/logos/Logo Mark/Logomark secondary (pink).svg';
-import typeLogo from '../public/assets/logos/Type logo/Type logo secondary (pink).svg';
+const logoMark = '/assets/logos/Logo Mark/Logomark secondary (pink).svg';
+const typeLogo = '/assets/logos/Type logo/Type logo secondary (pink).svg';
 
 const Navbar: React.FC = () => {
   return (

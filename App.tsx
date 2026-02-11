@@ -12,38 +12,45 @@ const App: React.FC = () => {
   React.useEffect(() => {
     const updateScale = () => {
       const currentRatio = window.devicePixelRatio || 1;
-      // Calculate how much the user has zoomed relative to the initial load
       const newScale = initialRatio.current / currentRatio;
       setScale(newScale);
     };
 
-    // Use ResizeObserver and matchMedia to catch all types of zoom/resize events
     window.addEventListener('resize', updateScale);
 
-    // Some browsers trigger zoom changes that 'resize' doesn't catch immediately
-    const mq = window.matchMedia(`(resolution: ${initialRatio.current}dppx)`);
-    const handleChange = () => updateScale();
+    // Check more frequently and on scroll to catch all zoom interactions
+    const interval = setInterval(updateScale, 500);
 
-    // Monitor for any resolution changes (zoom)
-    const interval = setInterval(updateScale, 1000);
+    // Also watch visualViewport which is more accurate for zoom in mobile/modern browsers
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateScale);
+      window.visualViewport.addEventListener('scroll', updateScale);
+    }
 
     return () => {
       window.removeEventListener('resize', updateScale);
       clearInterval(interval);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', updateScale);
+        window.visualViewport.removeEventListener('scroll', updateScale);
+      }
     };
   }, []);
 
   return (
     <main
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black select-none origin-center"
+      className="relative overflow-hidden bg-black select-none"
       style={{
         transform: `scale(${scale})`,
-        width: `${100 / scale}%`,
-        height: `${100 / scale}%`,
+        transformOrigin: '0 0',
+        width: `${100 / scale}vw`,
+        height: `${100 / scale}vh`,
         position: 'fixed',
-        top: '50%',
-        left: '50%',
-        translate: '-50% -50%'
+        top: 0,
+        left: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}
     >
       {/* Background Layer */}
