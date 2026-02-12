@@ -15,34 +15,39 @@ const MarkerBox: React.FC<MarkerBoxProps> = ({ marker }) => {
   };
 
   return (
-    <div 
-      className="absolute z-20 group hidden sm:block pointer-events-auto" 
+    <div
+      className="absolute z-20 group hidden sm:block pointer-events-auto"
       style={style}
     >
-      <div className={`relative ${marker.width} border border-[#f3b6c2]/60 group-hover:border-primary transition-all duration-500 backdrop-blur-[1px] cursor-pointer`}>
+      <div className={`relative ${marker.width} border-2 border-white/80 shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:border-primary transition-all duration-500 backdrop-blur-[2px] cursor-pointer`}>
         {/* Reveal Effect */}
-        <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
-          <img 
-            alt={marker.label} 
-            className={`w-[100vw] h-[100vh] max-w-none absolute ${marker.bgPos} object-cover scale-110 group-hover:scale-100 transition-transform duration-1000`} 
+        <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-out">
+          <img
+            alt={marker.label}
+            className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
             src={marker.imageUrl}
+            style={{ objectPosition: marker.imagePosition || 'center' }}
+            loading="eager"
+            {...({ fetchPriority: "high" } as any)}
+            decoding="sync"
           />
         </div>
 
         {/* Corner dots */}
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-white rounded-full pulse-marker"></div>
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full pulse-marker"></div>
-        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-white rounded-full pulse-marker"></div>
-        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-white rounded-full pulse-marker"></div>
+        <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-primary rounded-full pulse-marker border border-white/50"></div>
+        <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-primary rounded-full pulse-marker border border-white/50"></div>
+        <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-primary rounded-full pulse-marker border border-white/50"></div>
+        <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-primary rounded-full pulse-marker border border-white/50"></div>
 
-        {/* Label */}
-        <span className={`absolute ${marker.left ? '-left-12' : marker.right ? '-right-12' : '-top-8'} top-1/2 -translate-y-1/2 font-serif italic text-xl md:text-2xl text-white opacity-90 group-hover:text-primary group-hover:opacity-100 transition-all duration-300 drop-shadow-lg`}>
+        {/* Label - Positioned outside */}
+        <span className={`absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-serif italic text-2xl md:text-3xl text-white opacity-100 group-hover:text-primary transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] 
+          ${marker.labelPosition === 'left' ? 'right-full mr-8 text-right' : 'left-full ml-8 text-left'}`}>
           {marker.label}
         </span>
 
         {/* Action Icon */}
-        <div className="absolute -top-4 -left-4 bg-[#454065]/60 p-1.5 rounded-full backdrop-blur-md border border-[#f3b6c2]/30 group-hover:bg-primary transition-colors">
-          <span className="material-symbols-outlined text-white text-[10px] md:text-xs">
+        <div className="absolute -top-5 -left-5 bg-white p-2 rounded-full shadow-lg border border-primary group-hover:bg-primary transition-colors">
+          <span className="material-symbols-outlined text-black text-[12px] md:text-sm group-hover:text-white">
             {marker.id === 'thalia' ? 'close' : 'open_in_full'}
           </span>
         </div>
