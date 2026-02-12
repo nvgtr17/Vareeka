@@ -20,7 +20,7 @@ export const MARKERS: Marker[] = [
     left: '18%',
     width: 'w-32 h-40 md:w-48 md:h-64',
     bgPos: 'top-[-20vh] left-[-18vw]',
-    imageUrl: '/assets/article%20images/pend1.JPG',
+    imageUrl: 'assets/article%20images/pend1.JPG',
     labelPosition: 'left'
   },
   {
@@ -30,7 +30,7 @@ export const MARKERS: Marker[] = [
     right: '20%',
     width: 'w-24 h-24 md:w-32 md:h-32',
     bgPos: 'top-[-45vh] right-[-20vw]',
-    imageUrl: '/assets/article%20images/ear1.JPG',
+    imageUrl: 'assets/article%20images/ear1.JPG',
     labelPosition: 'right'
   },
   {
@@ -40,7 +40,7 @@ export const MARKERS: Marker[] = [
     left: '15%',
     width: 'w-40 h-24 md:w-56 md:h-32',
     bgPos: 'bottom-[-15vh] left-[-15vw]',
-    imageUrl: '/assets/article%20images/ring1.JPG',
+    imageUrl: 'assets/article%20images/ring1.JPG',
     imagePosition: '35% 65%',
     labelPosition: 'left'
   }
