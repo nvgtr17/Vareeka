@@ -13,6 +13,7 @@ export interface Marker {
   height?: string;
   bgPos: string;
   imageUrl: string;
+  imagePosition?: string;
   labelPosition?: 'left' | 'right';
 }
 

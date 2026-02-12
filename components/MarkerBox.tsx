@@ -26,6 +26,7 @@ const MarkerBox: React.FC<MarkerBoxProps> = ({ marker }) => {
             alt={marker.label}
             className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
             src={marker.imageUrl}
+            style={{ objectPosition: marker.imagePosition || 'center' }}
           />
         </div>
 
