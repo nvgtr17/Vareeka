@@ -11,6 +11,18 @@ const App: React.FC = () => {
   const initialRatio = React.useRef(window.devicePixelRatio || 1);
 
   React.useEffect(() => {
+    // Preload all marker images
+    MARKERS.forEach((m) => {
+      const img = new Image();
+      img.src = m.imageUrl;
+    });
+
+    // Preload background images
+    MAIN_BG_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
     const updateScale = () => {
       const currentRatio = window.devicePixelRatio || 1;
       const newScale = initialRatio.current / currentRatio;
@@ -54,20 +66,8 @@ const App: React.FC = () => {
         justifyContent: 'center'
       }}
     >
-      {/* Background Selector */}
-      <div className="absolute top-6 left-6 z-[100] pointer-events-auto">
-        <select
-          value={bgImage}
-          onChange={(e) => setBgImage(e.target.value)}
-          className="bg-black/40 backdrop-blur-md border border-white/20 text-white text-xs px-3 py-2 rounded-lg outline-none cursor-pointer hover:bg-black/60 transition-all font-sans tracking-wider"
-        >
-          {MAIN_BG_IMAGES.map((img, idx) => (
-            <option key={img} value={img} className="bg-black text-white">
-              Background {idx + 1}
-            </option>
-          ))}
-        </select>
-      </div>
+
+
 
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 bg-black overflow-hidden">
@@ -103,12 +103,6 @@ const App: React.FC = () => {
       {/* Subtle vignette */}
       <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.8)] z-30"></div>
 
-      {/* Image Preloader for large assets */}
-      <div className="hidden" aria-hidden="true">
-        {MARKERS.map((m) => (
-          <img key={`preload-${m.id}`} src={m.imageUrl} alt="" />
-        ))}
-      </div>
     </main>
   );
 };

@@ -2,15 +2,11 @@
 import { Marker } from './types';
 
 export const MAIN_BG_IMAGES = [
-  "assets/images/1.jpg",
-  "assets/images/2.jpg",
-  "assets/images/3.jpg",
   "assets/images/4.PNG",
-  "assets/images/5.jpg",
-  "assets/images/6.jpg",
 ];
 
 export const DEFAULT_BG_IMAGE = MAIN_BG_IMAGES[0];
+
 
 export const MARKERS: Marker[] = [
   {
@@ -35,7 +31,7 @@ export const MARKERS: Marker[] = [
   },
   {
     id: 'alejandra',
-    label: 'Alejandra',
+    label: 'Infinity',
     bottom: '15%',
     left: '15%',
     width: 'w-40 h-24 md:w-56 md:h-32',
