@@ -21,12 +21,15 @@ const MarkerBox: React.FC<MarkerBoxProps> = ({ marker }) => {
     >
       <div className={`relative ${marker.width} border-2 border-white/80 shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:border-primary transition-all duration-500 backdrop-blur-[2px] cursor-pointer`}>
         {/* Reveal Effect */}
-        <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
+        <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
           <img
             alt={marker.label}
             className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
             src={marker.imageUrl}
             style={{ objectPosition: marker.imagePosition || 'center' }}
+            loading="eager"
+            {...({ fetchPriority: "high" } as any)}
+            decoding="sync"
           />
         </div>
 

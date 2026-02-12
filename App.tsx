@@ -102,6 +102,13 @@ const App: React.FC = () => {
 
       {/* Subtle vignette */}
       <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.8)] z-30"></div>
+
+      {/* Image Preloader for large assets */}
+      <div className="hidden" aria-hidden="true">
+        {MARKERS.map((m) => (
+          <img key={`preload-${m.id}`} src={m.imageUrl} alt="" />
+        ))}
+      </div>
     </main>
   );
 };
